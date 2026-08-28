@@ -14,7 +14,7 @@ tentar resolver o problema quando carregava no espaço so dava uma parte no nome
 
 ## Sessão 3 – 28/08/2026
 
-- continuação do projeto
-- colocar a escolha de carta
-- verifições e testes
-- correção de erros 
+- criação auxiliar randomcartas
+- estudar como utilizar rand()
+- 
+- 

@@ -13,11 +13,14 @@ strings   -> nome do jogador
 //bibliotecas
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include <time.h>
 
 
 //prototipos ou funções auxiliares
 void mostrarTabuleiro(void);
 int escolherCarta(int *linha, int *coluna);
+void randomcartas(void);
 
 
 
@@ -42,6 +45,7 @@ printf("\nBem-vindo, %s!\n", nome);
 //função
 mostrarTabuleiro();
 escolherCarta(&linha, &coluna);
+void randomcartas(void);
 
 
 
@@ -55,6 +59,8 @@ escolherCarta(&linha, &coluna);
 
 
 //funções auxiliares
+
+//criar tabela
 void mostrarTabuleiro(void)  {
     // Função para mostrar o tabuleiro
     char tabu[4][4];
@@ -78,6 +84,8 @@ void mostrarTabuleiro(void)  {
 
 };
 
+
+//escolha da carta
 int escolherCarta(int *linha, int *coluna) {
     printf("Linha: ");
 
@@ -99,6 +107,32 @@ int escolherCarta(int *linha, int *coluna) {
 
 
 };
+
+
+//atibuição de cartas aleatórias
+void randomcartas(void) {
+
+
+    char cartas[4] = {'A', 'B', 'C', 'D'};
+    cartas[0] = 'A';
+    cartas[1] = 'B';
+    cartas[2] = 'C';
+    cartas[3] = 'D';
+
+
+    srand(time(NULL));
+
+        for (int i = 0; i < 4; i++) {
+
+          int num = rand() %4 ;
+          printf("%c\n", cartas[num]);  
+                   
+
+        }
+
+};
+
+
 
 
 
