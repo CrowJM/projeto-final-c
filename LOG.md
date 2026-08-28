@@ -16,5 +16,9 @@ tentar resolver o problema quando carregava no espaço so dava uma parte no nome
 
 - criação auxiliar randomcartas
 - estudar como utilizar rand()
-- 
-- 
+- limpeza de codigo
+- aplicação do rand()
+- tentar entende onde estava o erro por que nao lia as letra
+- correção do erro tabu[linha][coluna] = '?';
+- loop sem sucesso
+- leitura de letras corrigida
