@@ -5,7 +5,14 @@
 tentar resolver o problema quando carregava no espaço so dava uma parte no nome e quando carregava enter dava sempre um \n extra.
 - Adicionei a mensagem de boas-vindas.
 
-## Sessão 1 – 24/08/2026
+## Sessão 2 – 24/08/2026
+
+- continuação do projeto
+- colocar a escolha de carta
+- verifições e testes
+- correção de erros 
+
+## Sessão 3 – 28/08/2026
 
 - continuação do projeto
 - colocar a escolha de carta

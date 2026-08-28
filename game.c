@@ -58,8 +58,13 @@ escolherCarta(&linha, &coluna);
 void mostrarTabuleiro(void)  {
     // Função para mostrar o tabuleiro
     char tabu[4][4];
+
     
+    printf("   1 2 3 4\n\n");
+
         for (int linha = 0; linha < 4; linha++) {
+
+               printf("%d  ", linha + 1);
             
             for (int coluna = 0; coluna < 4; coluna++){
                 
