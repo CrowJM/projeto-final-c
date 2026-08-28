@@ -16,10 +16,11 @@ strings   -> nome do jogador
 #include <stdlib.h>
 #include <time.h>
 
+#define TAM 4
+
 
 //prototipos ou funções auxiliares
-void mostrarTabuleiro(void);
-int escolherCarta(int *linha, int *coluna);
+int escolherCarta(int *linha1,int *linha2, int *coluna1, int *coluna2);
 void randomcartas(void);
 
 
@@ -28,9 +29,12 @@ void randomcartas(void);
 //main
 int main(void) {
 
+//variaveis
 char nome[20];
-int i, j, linha, coluna;
+int linha1, linha2, coluna1, coluna2, cartas;
 
+
+//inicio do jogo
 printf("========================\n");
 printf("    JOGO DA MEMORIA     \n");
 printf("========================\n");
@@ -42,14 +46,35 @@ nome[strcspn(nome, "\n")] = 0;  // -> para que remover o ultimo \n que é coloca
 
 printf("\nBem-vindo, %s!\n", nome);
 
-//função
-mostrarTabuleiro();
-escolherCarta(&linha, &coluna);
-void randomcartas(void);
+
+
+//criar tabela
+char tabu[4][4];   
+printf("\n   1 2 3 4\n");
+
+    for (int linha = 0; linha < 4; linha++) {
+
+            printf("%d  ", linha + 1);
+            
+        for (int coluna = 0; coluna < 4; coluna++){
+                
+            tabu[linha][coluna] = '?';
+            printf("%c ", tabu[linha][coluna]);
+                
+        }
+
+        printf("\n");
+    }
+
+//verificação
 
 
 
 
+
+//funções
+randomcartas();
+escolherCarta(&linha1, &linha2, &coluna1, &coluna2);
 
 };
 
@@ -60,55 +85,79 @@ void randomcartas(void);
 
 //funções auxiliares
 
-//criar tabela
-void mostrarTabuleiro(void)  {
-    // Função para mostrar o tabuleiro
-    char tabu[4][4];
-
-    
-    printf("   1 2 3 4\n\n");
-
-        for (int linha = 0; linha < 4; linha++) {
-
-               printf("%d  ", linha + 1);
-            
-            for (int coluna = 0; coluna < 4; coluna++){
-                
-                tabu[linha][coluna] = '?';
-                printf("%c ", tabu[linha][coluna]);
-                
-            }
-
-            printf("\n");
-        }
-
-};
 
 
 //escolha da carta
-int escolherCarta(int *linha, int *coluna) {
-    printf("Linha: ");
+int escolherCarta(int *linha1,int *linha2, int *coluna1, int *coluna2) {
+    printf("\nLinha 1: ");
 
-        if (scanf("%d", linha) != 1){
+        while (scanf("%d", linha1) != 1 || *linha1 < 1 || *linha1 > TAM){
+            printf("Linha invalida! Escolhe entre 1 e 4: ");
             getchar();
-            return 0;
+            
+            
         }
 
-    printf("Coluna: ");
+    printf("\nLinha 2: ");
 
-        if (scanf("%d", coluna) != 1){
+        while (scanf("%d", linha2) != 1 || *linha2 < 1 || *linha2 > TAM){
+            printf("Linha invalida! Escolhe entre 1 e 4: ");
             getchar();
-            return 0;
+            
+            
+        }
+
+    printf("Coluna1: ");
+
+        while (scanf("%d", coluna1) != 1 || *coluna1 < 1 || *coluna1 > TAM){
+            printf("Coluna invalida! Escolhe entre 1 e 4: ");
+            getchar();
+            return 1;
+            
+        }
+
+    printf("Coluna2: ");
+
+        while (scanf("%d", coluna2) != 1 || *coluna2 < 1 || *coluna2 > TAM){
+            printf("Coluna invalida! Escolhe entre 1 e 4: ");
+            getchar();
+            
+            
         }
 
     getchar();
-    return 1;
+    
 
 
 
 };
 
 
+
+void randomcartas(void) {
+
+    
+    char cartas[8] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
+
+    srand(time(NULL));
+
+    for (int linha = 0; linha < 4; linha++) {
+
+
+        for (int coluna = 0; coluna < 4; coluna++) {
+
+            int num = rand() % 8;
+
+
+        }
+    }
+}
+
+
+   
+
+
+/*test
 //atibuição de cartas aleatórias
 void randomcartas(void) {
 
@@ -124,28 +173,89 @@ void randomcartas(void) {
 
         for (int i = 0; i < 4; i++) {
 
-          int num = rand() %4 ;
-          printf("%c\n", cartas[num]);  
-                   
+          int num = rand() %4 ;         
 
+        };
+       
+
+};*/
+
+
+
+/*int verificarVitoria(char tabu[4][4]){
+int i;
+
+    for (i = 0; i < 3; i++){
+        if (tabu[i][0] != ' ' &&
+            tabu[i][0] == tabu[i][1] &&
+            tabu[i][1] == tabu[i][2] &&
+            tabu[i][2] == tabu[i][3]){
+            return 1;
         }
+    }
+
+    for (i = 0; i < 3; i++){
+        if (tabu[0][i] != ' ' &&
+            tabu[0][i] == tabu[1][i] &&
+            tabu[1][i] == tabu[2][i] &&
+            tabu[i][1] == tabu[i][2]){
+            return 1;
+        }
+    }
+
+    if (tabu[0][0] != ' ' &&
+        tabu[0][0] == tabu[1][1] &&
+        tabu[1][1] == tabu[2][2] &&
+        tabu[i][1] == tabu[i][2]){
+        return 1;
+    }
+
+    if (tabu[0][2] != ' ' &&
+        tabu[0][2] == tabu[1][1] &&
+        tabu[1][1] == tabu[2][0] &&
+        tabu[i][1] == tabu[i][2]){
+        return 1;
+    }
+
+    return 0;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*criar tabela
+void mostrarTabuleiro(void)  {
+    // Função para mostrar o tabuleiro
+    char tabu[4][4];
+
+    
+    printf("\n   1 2 3 4\n");
+
+        for (int linha = 0; linha < 4; linha++) {
+
+               printf("%d  ", linha + 1);
+            
+            for (int coluna = 0; coluna < 4; coluna++){
+                
+                tabu[linha][coluna] = '?';
+                printf("%c ", tabu[linha][coluna]);
+                
+            }
+
+            printf("\n");
+        }
+       
 
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
 
 verificarPar();
 verificarVitoria();
